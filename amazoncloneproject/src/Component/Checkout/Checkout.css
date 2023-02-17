@@ -1,0 +1,28 @@
+.chckout {
+    max-width: 100%;
+}
+
+.chckout__left{
+    width: 70%;
+}
+
+.checkout__right{ 
+    width:30%;
+    margin-left: 10px;
+}
+.check__img {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+.checkout__title {
+    margin-right: 10px;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}
+.chckout {
+    display: flex;
+    padding: 20px;
+    background-color: white;
+    height: max-content;
+}
