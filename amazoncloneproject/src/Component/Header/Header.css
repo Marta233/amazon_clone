@@ -6,6 +6,9 @@
     /* align-items: center; */
     
 }
+.header__clear{
+    text-decoration: none;
+}
 .header__containt {
     display: flex;
     width: 90%;

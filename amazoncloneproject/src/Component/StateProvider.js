@@ -10,6 +10,8 @@ export const StateProvider = ({ reducer, initialState, children }) => (
   </StateContext.Provider>
 );
 
+// we wrap our app in index.js using stateprovider(initialstate and reducer)
+
 // Pull and push information from the data layer
 // to make the data layer usable by other childernas
 export const useStateValue = () => useContext(StateContext);

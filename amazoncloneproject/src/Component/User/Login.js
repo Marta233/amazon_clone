@@ -4,6 +4,7 @@ import { auth } from "../../firebase";
 import "./Login.css";
 
 function Login() {
+  // its need to process email and password data
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigator = useNavigate();
@@ -18,10 +19,10 @@ function Login() {
   };
   const register = (e) => {
     e.preventDefault();
+
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
-        console.log(auth);
         if (auth) {
           navigator("/");
         }
