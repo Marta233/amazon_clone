@@ -46,6 +46,9 @@ function Login() {
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            // e is the event, which in this case is
+            // change, target is the element that triggered the event, which in this case
+            // is the input, and value is the value of the input
           />
 
           <h5>Password</h5>

@@ -12,16 +12,12 @@ import { db } from "../../firebase";
 
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
-
   const navigat = useNavigate();
-
   const getBasketTotal = (basket) =>
     basket?.reduce((amount, item) => item.price + amount, 0);
-
   // to use stryp method we use those Hooks
   const stripe = useStripe();
   const elements = useElements();
-
   // for error initially null
   const [error, setError] = useState(null);
   // buttons are initisally disabled
@@ -29,10 +25,8 @@ function Payment() {
   // process successed initially false
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState("");
-
   //  deal with strip befor pay the stip give code(with code payment send)
-  const [clientSecret, setClientSecret] = useState("true");
-
+  const [clientSecret, setClientSecret] = useState("");
   // to aske strip to give the code t process our payment
   useEffect(() => {
     // generate the special stripe secret which allows us to charge a customer
@@ -51,6 +45,7 @@ function Payment() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setProcessing(true);
+    // const clientSecretstring = clientSecret.toString();
     // on stipe using confirmcardpayment aske to confirm to charge
     // using card.elements.getElement(cardElement) to get the card number user enter
     const payload = await stripe
@@ -61,7 +56,7 @@ function Payment() {
       })
       .then(({ paymentIntent }) => {
         // paymentIntent = payment confirmation they send for as
-
+        // creat users collection
         db.collection("users")
           .doc(user?.uid)
           .collection("orders")

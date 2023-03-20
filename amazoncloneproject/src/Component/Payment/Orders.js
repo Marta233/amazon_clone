@@ -14,6 +14,7 @@ function Orders() {
         .doc(user?.uid)
         .collection("orders")
         .orderBy("created", "desc")
+        // its snapshoot the database(take photo of databse)
         .onSnapshot((snapshot) =>
           setOrders(
             snapshot.docs.map((doc) => ({

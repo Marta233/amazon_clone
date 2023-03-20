@@ -48,10 +48,10 @@ function Header() {
             <span className="header__optionOne">Your</span>
             <span className="header__optionTwo">Prime</span>
           </div>
-          <Link to="/Checkout" className="header__clear">
+          <Link to={!user ? "/" : "/Checkout"} className="header__clear">
             <ShoppingBasketOutlinedIcon className="shoppingCart" />
           </Link>
-          <span className=" header__count">{basket.length}</span>
+          <span className=" header__count">{!user ? 0 : basket.length}</span>
         </div>
       </div>
     </div>
